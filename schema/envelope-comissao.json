@@ -1,0 +1,92 @@
+{
+  "$ref": "#/definitions/envelope-comissao",
+  "definitions": {
+    "envelope-comissao": {
+      "type": "object",
+      "properties": {
+        "de": {
+          "type": "string",
+          "const": "sbrtask"
+        },
+        "para": {
+          "type": "string",
+          "const": "theo"
+        },
+        "tipo": {
+          "type": "string",
+          "const": "comissionamento_ciclo"
+        },
+        "assunto": {
+          "type": "string"
+        },
+        "corpo": {
+          "type": "object",
+          "properties": {
+            "periodo": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}$"
+            },
+            "tecnicos": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "adUsername": {
+                    "type": "string",
+                    "enum": [
+                      "pmiranda",
+                      "vsantos",
+                      "hclaudio",
+                      "dbarbosa"
+                    ]
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "xp": {
+                    "type": "integer"
+                  },
+                  "tier": {
+                    "type": "string",
+                    "enum": [
+                      "bronze",
+                      "silver",
+                      "gold",
+                      "platinum",
+                      "elite"
+                    ]
+                  },
+                  "commissionAmt": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "adUsername",
+                  "name",
+                  "xp",
+                  "tier",
+                  "commissionAmt"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "periodo",
+            "tecnicos"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "de",
+        "para",
+        "tipo",
+        "assunto",
+        "corpo"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

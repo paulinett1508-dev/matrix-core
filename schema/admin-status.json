@@ -1,0 +1,47 @@
+{
+  "$ref": "#/definitions/admin-status",
+  "definitions": {
+    "admin-status": {
+      "type": "object",
+      "properties": {
+        "entity": {
+          "type": "string",
+          "const": "theo"
+        },
+        "ts": {
+          "type": "integer"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "kind",
+              "detail"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        }
+      },
+      "required": [
+        "entity",
+        "ts",
+        "summary"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

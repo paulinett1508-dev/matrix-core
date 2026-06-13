@@ -1,0 +1,51 @@
+{
+  "$ref": "#/definitions/theo-manifest",
+  "definitions": {
+    "theo-manifest": {
+      "type": "object",
+      "properties": {
+        "entity": {
+          "type": "string",
+          "const": "theo"
+        },
+        "ts": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ok",
+            "degraded",
+            "down"
+          ]
+        },
+        "workers": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "stale",
+              "down"
+            ]
+          }
+        },
+        "last_heartbeat": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          }
+        }
+      },
+      "required": [
+        "entity",
+        "ts",
+        "status",
+        "workers",
+        "last_heartbeat"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

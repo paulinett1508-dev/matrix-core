@@ -1,0 +1,63 @@
+{
+  "$ref": "#/definitions/exchange-envelope",
+  "definitions": {
+    "exchange-envelope": {
+      "type": "object",
+      "properties": {
+        "de": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "sheldon",
+                "theo"
+              ]
+            },
+            {
+              "type": "string",
+              "const": "sbrtask"
+            },
+            {
+              "type": "string",
+              "const": "oraculo"
+            }
+          ]
+        },
+        "para": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "sheldon",
+                "theo"
+              ]
+            },
+            {
+              "type": "string",
+              "const": "sbrtask"
+            },
+            {
+              "type": "string",
+              "const": "oraculo"
+            }
+          ]
+        },
+        "tipo": {
+          "type": "string"
+        },
+        "assunto": {
+          "type": "string"
+        },
+        "corpo": {}
+      },
+      "required": [
+        "de",
+        "para",
+        "tipo",
+        "assunto"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

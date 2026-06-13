@@ -1,0 +1,36 @@
+{
+  "$ref": "#/definitions/infra-status",
+  "definitions": {
+    "infra-status": {
+      "type": "object",
+      "properties": {
+        "entity": {
+          "type": "string",
+          "const": "oraculo"
+        },
+        "ts": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ok",
+            "degraded",
+            "down"
+          ]
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "entity",
+        "ts",
+        "status",
+        "summary"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
