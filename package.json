@@ -1,0 +1,29 @@
+{
+  "name": "@matrix/core",
+  "version": "1.0.0",
+  "description": "Contratos canônicos da Matrix do Laboratório Sobral — schemas Zod compartilhados entre as entidades e apps.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "src"],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsc --watch"
+  },
+  "keywords": ["matrix", "lab-sobral", "contracts", "zod"],
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
