@@ -5,8 +5,13 @@ import { z } from "zod";
  * Espelha THE-MATRIX/entidades/{humanas,virtuais}.md.
  */
 
-export const AdUsername = z.enum(["pmiranda", "vsantos", "hclaudio", "dbarbosa"]);
+/** adUsername vem do AD/LDAP — open-world (qualquer técnico ganha XP). */
+export const AdUsername = z.string();
 export type AdUsername = z.infer<typeof AdUsername>;
+
+/** Subset curado: admins TI com codinome/aura. Mantém o registry exaustivo. */
+export const HumanAdUsername = z.enum(["pmiranda", "vsantos", "hclaudio", "dbarbosa"]);
+export type HumanAdUsername = z.infer<typeof HumanAdUsername>;
 
 export const HumanCodename = z.enum(["Arquiteto", "VSFOUR", "H14N", "MRX"]);
 export type HumanCodename = z.infer<typeof HumanCodename>;
@@ -15,14 +20,14 @@ export const HumanRole = z.enum(["superadmin", "admin"]);
 export type HumanRole = z.infer<typeof HumanRole>;
 
 export const HumanEntity = z.object({
-  adUsername: AdUsername,
+  adUsername: HumanAdUsername,
   codename: HumanCodename,
   name: z.string(),
   role: HumanRole,
 });
 export type HumanEntity = z.infer<typeof HumanEntity>;
 
-export const HUMANS: Record<AdUsername, HumanEntity> = {
+export const HUMANS: Record<HumanAdUsername, HumanEntity> = {
   pmiranda: { adUsername: "pmiranda", codename: "Arquiteto", name: "Paulinete Miranda", role: "superadmin" },
   vsantos: { adUsername: "vsantos", codename: "VSFOUR", name: "Vitor Santos", role: "admin" },
   hclaudio: { adUsername: "hclaudio", codename: "H14N", name: "Hian Cláudio", role: "admin" },
