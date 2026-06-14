@@ -3,17 +3,21 @@
   "version": "1.0.0",
   "description": "Contratos canônicos da Matrix do Laboratório Sobral — schemas Zod compartilhados entre as entidades e apps.",
   "type": "module",
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "types": "./dist/esm/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
     }
   },
   "files": ["dist", "src", "schema"],
   "scripts": {
-    "build": "tsc && npm run build:jsonschema",
+    "build": "npm run build:esm && npm run build:cjs && npm run build:jsonschema",
+    "build:esm": "tsc -p tsconfig.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json && node scripts/fix-cjs.mjs",
     "build:jsonschema": "node scripts/gen-jsonschema.mjs",
     "typecheck": "tsc --noEmit",
     "prepare": "npm run build",

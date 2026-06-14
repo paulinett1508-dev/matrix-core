@@ -7,9 +7,9 @@ import {
   AdminStatus,
   InfraStatus,
   ExchangeEnvelope,
-} from "../dist/entity-exchange.js";
-import { TownEvent } from "../dist/town-event.js";
-import { EnvelopeComissao } from "../dist/envelope-comissao.js";
+} from "../dist/esm/entity-exchange.js";
+import { TownEvent } from "../dist/esm/town-event.js";
+import { EnvelopeComissao } from "../dist/esm/envelope-comissao.js";
 
 const out = new URL("../schema/", import.meta.url);
 mkdirSync(out, { recursive: true });
