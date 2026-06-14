@@ -12,11 +12,11 @@ export type AgentId = z.infer<typeof AgentId>;
 
 export const DistrictId = z.enum([
   "town-square",
-  "frontend",
-  "backend",
-  "build",
-  "ops",
-  "test",
+  "frontend-district",
+  "backend-district",
+  "build-district",
+  "test-district",
+  "ops-district",
 ]);
 export type DistrictId = z.infer<typeof DistrictId>;
 
@@ -43,12 +43,12 @@ export type SlaStatus = z.infer<typeof SlaStatus>;
 
 export const TownEvent = z.object({
   id: z.string(),
-  ts: z.number().int(),
+  ts: z.number(),
   type: EventType,
   workspace: z.string(),
-  agent: AgentId.nullable().default(null),
-  district: DistrictId.nullable().default(null),
-  skill_id: z.string().nullable().default(null),
+  agent: AgentId.optional(),
+  skillId: z.string().optional(),
+  district: DistrictId.optional(),
   payload: z.record(z.string(), z.unknown()).default({}),
 });
 export type TownEvent = z.infer<typeof TownEvent>;

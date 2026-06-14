@@ -8,7 +8,7 @@
           "type": "string"
         },
         "ts": {
-          "type": "integer"
+          "type": "number"
         },
         "type": {
           "type": "string",
@@ -31,49 +31,29 @@
           "type": "string"
         },
         "agent": {
-          "anyOf": [
-            {
-              "type": "string",
-              "enum": [
-                "builder",
-                "reviewer",
-                "architect",
-                "scout",
-                "fixer",
-                "scribe"
-              ]
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null
+          "type": "string",
+          "enum": [
+            "builder",
+            "reviewer",
+            "architect",
+            "scout",
+            "fixer",
+            "scribe"
+          ]
+        },
+        "skillId": {
+          "type": "string"
         },
         "district": {
-          "anyOf": [
-            {
-              "type": "string",
-              "enum": [
-                "town-square",
-                "frontend",
-                "backend",
-                "build",
-                "ops",
-                "test"
-              ]
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null
-        },
-        "skill_id": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "default": null
+          "type": "string",
+          "enum": [
+            "town-square",
+            "frontend-district",
+            "backend-district",
+            "build-district",
+            "test-district",
+            "ops-district"
+          ]
         },
         "payload": {
           "type": "object",
