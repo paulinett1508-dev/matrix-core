@@ -1,0 +1,54 @@
+{
+  "$ref": "#/definitions/registry",
+  "definitions": {
+    "registry": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "papel": {
+            "type": "string"
+          },
+          "host": {
+            "type": "string"
+          },
+          "pode_escrever": {
+            "type": "boolean"
+          },
+          "tipos": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "consulta",
+                    "resposta",
+                    "fato",
+                    "evento",
+                    "briefing"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "const": "*"
+                }
+              ]
+            }
+          },
+          "sempre_requer_decisao": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "papel",
+          "host",
+          "pode_escrever",
+          "tipos"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

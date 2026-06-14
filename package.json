@@ -1,6 +1,6 @@
 {
   "name": "@matrix/core",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Contratos canônicos da Matrix do Laboratório Sobral — schemas Zod compartilhados entre as entidades e apps.",
   "type": "module",
   "main": "./dist/cjs/index.js",

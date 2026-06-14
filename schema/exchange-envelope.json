@@ -4,23 +4,20 @@
     "exchange-envelope": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string"
+        },
+        "ts": {
+          "type": "integer"
+        },
         "de": {
-          "anyOf": [
-            {
-              "type": "string",
-              "enum": [
-                "sheldon",
-                "theo"
-              ]
-            },
-            {
-              "type": "string",
-              "const": "sbrtask"
-            },
-            {
-              "type": "string",
-              "const": "oraculo"
-            }
+          "type": "string",
+          "enum": [
+            "theo",
+            "sheldon",
+            "sbrtask",
+            "oraculo",
+            "hermes"
           ]
         },
         "para": {
@@ -28,29 +25,66 @@
             {
               "type": "string",
               "enum": [
+                "theo",
                 "sheldon",
-                "theo"
+                "sbrtask",
+                "oraculo",
+                "hermes"
               ]
             },
             {
               "type": "string",
-              "const": "sbrtask"
-            },
-            {
-              "type": "string",
-              "const": "oraculo"
+              "const": "todos"
             }
           ]
         },
         "tipo": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "consulta",
+            "resposta",
+            "fato",
+            "evento",
+            "briefing"
+          ]
         },
         "assunto": {
           "type": "string"
         },
-        "corpo": {}
+        "corpo": {},
+        "in_reply_to": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "default": null
+        },
+        "requer_decisao": {
+          "type": "boolean",
+          "default": false
+        },
+        "estado": {
+          "type": "string",
+          "enum": [
+            "novo",
+            "lido",
+            "aguardando_arquiteto",
+            "respondido",
+            "arquivado"
+          ],
+          "default": "novo"
+        },
+        "ref_keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        }
       },
       "required": [
+        "id",
+        "ts",
         "de",
         "para",
         "tipo",

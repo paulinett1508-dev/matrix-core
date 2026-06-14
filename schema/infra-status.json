@@ -4,30 +4,60 @@
     "infra-status": {
       "type": "object",
       "properties": {
-        "entity": {
+        "schema": {
           "type": "string",
-          "const": "oraculo"
+          "const": "entity-exchange/infra-status@1"
         },
         "ts": {
           "type": "integer"
         },
-        "status": {
-          "type": "string",
-          "enum": [
-            "ok",
-            "degraded",
-            "down"
+        "emitido_por": {
+          "type": "string"
+        },
+        "lab": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "zion_host": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "nota": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "additionalProperties": false
+        },
+        "manutencao_programada": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": {}
+            },
+            {
+              "type": "null"
+            }
           ]
         },
-        "summary": {
+        "contato_escalacao": {
           "type": "string"
         }
       },
       "required": [
-        "entity",
+        "schema",
         "ts",
-        "status",
-        "summary"
+        "emitido_por",
+        "lab",
+        "zion_host",
+        "manutencao_programada",
+        "contato_escalacao"
       ],
       "additionalProperties": false
     }

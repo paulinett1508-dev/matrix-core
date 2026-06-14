@@ -3,10 +3,11 @@
 import { writeFileSync, mkdirSync } from "node:fs";
 import { zodToJsonSchema } from "zod-to-json-schema";
 import {
-  TheoManifest,
   AdminStatus,
   InfraStatus,
   ExchangeEnvelope,
+  StatusManifest,
+  Registry,
 } from "../dist/esm/entity-exchange.js";
 import { TownEvent } from "../dist/esm/town-event.js";
 import { EnvelopeComissao } from "../dist/esm/envelope-comissao.js";
@@ -15,10 +16,11 @@ const out = new URL("../schema/", import.meta.url);
 mkdirSync(out, { recursive: true });
 
 const contracts = {
-  "theo-manifest": TheoManifest,
   "admin-status": AdminStatus,
   "infra-status": InfraStatus,
   "exchange-envelope": ExchangeEnvelope,
+  "status-manifest": StatusManifest,
+  "registry": Registry,
   "town-event": TownEvent,
   "envelope-comissao": EnvelopeComissao,
 };

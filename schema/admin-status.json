@@ -4,41 +4,158 @@
     "admin-status": {
       "type": "object",
       "properties": {
-        "entity": {
+        "schema": {
           "type": "string",
-          "const": "theo"
+          "const": "entity-exchange/admin-status@2"
         },
         "ts": {
           "type": "integer"
         },
-        "summary": {
+        "emitido_por": {
           "type": "string"
         },
-        "flags": {
+        "host_metrics": {
+          "type": "object",
+          "properties": {
+            "cpu_pct": {
+              "type": "integer"
+            },
+            "mem_pct": {
+              "type": "integer"
+            },
+            "disk_pct": {
+              "type": "integer"
+            },
+            "load1": {
+              "type": "number"
+            },
+            "uptime_s": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "cpu_pct",
+            "mem_pct",
+            "disk_pct",
+            "load1",
+            "uptime_s"
+          ],
+          "additionalProperties": false
+        },
+        "alertas_ativos": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "kind": {
+              "key": {
                 "type": "string"
               },
-              "detail": {
-                "type": "string"
+              "severidade": {
+                "type": "string",
+                "enum": [
+                  "critico",
+                  "avisos"
+                ]
+              },
+              "desde": {
+                "type": "integer"
               }
             },
             "required": [
-              "kind",
-              "detail"
+              "key",
+              "severidade",
+              "desde"
             ],
             "additionalProperties": false
           },
           "default": []
+        },
+        "gestao_prod_labsobral": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "nota": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "additionalProperties": false
+        },
+        "agnvendas": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "nota": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "additionalProperties": false
+        },
+        "sbr_ocomon": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "nota": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "additionalProperties": false
+        },
+        "gestao_vps_legado": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string"
+            },
+            "nota": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "status"
+          ],
+          "additionalProperties": false
+        },
+        "manutencao_programada": {
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": {}
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "contato_escalacao": {
+          "type": "string"
         }
       },
       "required": [
-        "entity",
+        "schema",
         "ts",
-        "summary"
+        "emitido_por",
+        "host_metrics",
+        "gestao_prod_labsobral",
+        "agnvendas",
+        "sbr_ocomon",
+        "gestao_vps_legado",
+        "manutencao_programada",
+        "contato_escalacao"
       ],
       "additionalProperties": false
     }

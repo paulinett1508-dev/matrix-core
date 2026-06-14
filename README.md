@@ -12,7 +12,7 @@ Antes, cada repo redefinia os contratos de troca (entity-exchange, evento, envel
 | Módulo | Conteúdo |
 |---|---|
 | `entities` | Registry tipado (HUMANS, VirtualEntity, AdUsername, codinomes) |
-| `entity-exchange` | `entity-exchange@1` — TheoManifest, AdminStatus, InfraStatus, ExchangeEnvelope |
+| `entity-exchange` | `entity-exchange@2` (ADR-003) — AdminStatus(@2), InfraStatus(@1), StatusManifest (wrapper office-boy), ExchangeEnvelope (rico), Alert, Registry, EntityId |
 | `town-event` | `TownEvent` + tipos de convergência (xp_earned, level_up, task_completed, cycle_closed) |
 | `envelope-comissao` | Envelope SbrTask → THEO de fechamento de ciclo |
 
