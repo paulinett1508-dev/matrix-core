@@ -34,7 +34,7 @@ export const HUMANS: Record<HumanAdUsername, HumanEntity> = {
   dbarbosa: { adUsername: "dbarbosa", codename: "MRX", name: "Daniel Barbosa", role: "admin" },
 };
 
-/** Entidades virtuais — córtex de alerta. Hermes NÃO entra aqui (é agente/serviço). */
+/** Entidades virtuais — córtex de domínio (autônomas, persistentes, donas de um domínio). */
 export const VirtualEntity = z.enum(["sheldon", "theo"]);
 export type VirtualEntity = z.infer<typeof VirtualEntity>;
 
@@ -42,3 +42,12 @@ export const VIRTUAL_DOMAINS: Record<VirtualEntity, "infra" | "negocio"> = {
   sheldon: "infra",
   theo: "negocio",
 };
+
+/**
+ * Agentes — transversais, invocados, servem função; NÃO são córtex de domínio.
+ * - hermes: assistente self-service dos 100 funcionários (no Oráculo).
+ * - link: agente-construtor — forja/deploya o ecossistema e anuncia fatos/eventos
+ *   à embaixada (codinome do universo Matrix: o operador-conector).
+ */
+export const AgentCodename = z.enum(["hermes", "link"]);
+export type AgentCodename = z.infer<typeof AgentCodename>;
