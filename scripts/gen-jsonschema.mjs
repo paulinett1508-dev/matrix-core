@@ -11,6 +11,7 @@ import {
 } from "../dist/esm/entity-exchange.js";
 import { TownEvent } from "../dist/esm/town-event.js";
 import { EnvelopeComissao } from "../dist/esm/envelope-comissao.js";
+import { IssueStatus } from "../dist/esm/issue-status.js";
 
 const out = new URL("../schema/", import.meta.url);
 mkdirSync(out, { recursive: true });
@@ -23,6 +24,7 @@ const contracts = {
   "registry": Registry,
   "town-event": TownEvent,
   "envelope-comissao": EnvelopeComissao,
+  "issue-status": IssueStatus,
 };
 
 for (const [name, schema] of Object.entries(contracts)) {

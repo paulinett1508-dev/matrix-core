@@ -1,0 +1,110 @@
+{
+  "$ref": "#/definitions/issue-status",
+  "definitions": {
+    "issue-status": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string",
+          "const": "entity-exchange/issue-status@1"
+        },
+        "entity": {
+          "type": "string",
+          "enum": [
+            "sheldon",
+            "theo"
+          ]
+        },
+        "ts": {
+          "type": "integer"
+        },
+        "repos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "abertas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "repo": {
+                "type": "string"
+              },
+              "number": {
+                "type": "integer"
+              },
+              "title": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string",
+                "enum": [
+                  "open",
+                  "closed"
+                ]
+              },
+              "labels": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "default": []
+              },
+              "author": {
+                "type": "string"
+              },
+              "createdAt": {
+                "type": "integer"
+              },
+              "updatedAt": {
+                "type": "integer"
+              },
+              "ageDays": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string",
+                "enum": [
+                  "critico",
+                  "avisos",
+                  "normal"
+                ]
+              }
+            },
+            "required": [
+              "repo",
+              "number",
+              "title",
+              "state",
+              "author",
+              "createdAt",
+              "updatedAt",
+              "ageDays",
+              "url",
+              "severity"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "resumo": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "entity",
+        "ts",
+        "repos",
+        "abertas",
+        "resumo"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

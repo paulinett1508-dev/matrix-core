@@ -1,6 +1,6 @@
 {
   "name": "@matrix/core",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Contratos canônicos da Matrix do Laboratório Sobral — schemas Zod compartilhados entre as entidades e apps.",
   "type": "module",
   "main": "./dist/cjs/index.js",
@@ -13,17 +13,27 @@
       "require": "./dist/cjs/index.js"
     }
   },
-  "files": ["dist", "src", "schema"],
+  "files": [
+    "dist",
+    "src",
+    "schema"
+  ],
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs && npm run build:jsonschema",
     "build:esm": "tsc -p tsconfig.json",
     "build:cjs": "tsc -p tsconfig.cjs.json && node scripts/fix-cjs.mjs",
     "build:jsonschema": "node scripts/gen-jsonschema.mjs",
     "typecheck": "tsc --noEmit",
+    "test": "vitest run",
     "prepare": "npm run build",
     "dev": "tsc --watch"
   },
-  "keywords": ["matrix", "lab-sobral", "contracts", "zod"],
+  "keywords": [
+    "matrix",
+    "lab-sobral",
+    "contracts",
+    "zod"
+  ],
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
@@ -31,6 +41,7 @@
   },
   "devDependencies": {
     "typescript": "^5.6.3",
+    "vitest": "^4.1.9",
     "zod-to-json-schema": "^3.23.0"
   }
 }

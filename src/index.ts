@@ -6,3 +6,4 @@ export * from "./entities.js";
 export * from "./entity-exchange.js";
 export * from "./town-event.js";
 export * from "./envelope-comissao.js";
+export * from "./issue-status.js";
