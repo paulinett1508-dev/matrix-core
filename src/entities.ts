@@ -48,8 +48,10 @@ export const VIRTUAL_DOMAINS: Record<VirtualEntity, "infra" | "negocio"> = {
  * - hermes: assistente self-service dos 100 funcionários (no Oráculo).
  * - link: agente-construtor — forja/deploya o ecossistema e anuncia fatos/eventos
  *   à embaixada (codinome do universo Matrix: o operador-conector).
+ * - sentinel: guardião transversal — varre todos os repos e emite postura de
+ *   segurança/compliance/convergência (posture-status@1). Não é córtex de domínio.
  */
-export const AgentCodename = z.enum(["hermes", "link"]);
+export const AgentCodename = z.enum(["hermes", "link", "sentinel"]);
 export type AgentCodename = z.infer<typeof AgentCodename>;
 
 /** Tipos de mensagem que uma entidade pode emitir na embaixada (espelha schema/registry.json). */
@@ -85,5 +87,11 @@ export const AGENTS: Record<AgentCodename, AgentRegistryEntry> = {
     pode_escrever: true,
     tipos: ["fato", "evento"],
     sempre_requer_decisao: true,
+  },
+  sentinel: {
+    papel: "guardião — varre repos e emite postura de segurança/compliance/convergência",
+    host: "theuniverse (GitHub Actions)",
+    pode_escrever: true,
+    tipos: ["fato", "evento", "briefing", "consulta"],
   },
 };

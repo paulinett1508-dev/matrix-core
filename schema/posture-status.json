@@ -1,0 +1,110 @@
+{
+  "$ref": "#/definitions/posture-status",
+  "definitions": {
+    "posture-status": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "string",
+          "const": "entity-exchange/posture-status@1"
+        },
+        "entity": {
+          "type": "string",
+          "const": "sentinel"
+        },
+        "ts": {
+          "type": "integer"
+        },
+        "repos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "repo": {
+                "type": "string"
+              },
+              "visibilidade": {
+                "type": "string",
+                "enum": [
+                  "public",
+                  "private"
+                ]
+              },
+              "score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "achados_abertos": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "secret_hardcoded",
+                        "secret_exposto",
+                        "repo_publico_com_segredo",
+                        "compliance_gap",
+                        "drift"
+                      ]
+                    },
+                    "severidade": {
+                      "type": "string",
+                      "enum": [
+                        "critico",
+                        "avisos",
+                        "normal"
+                      ]
+                    },
+                    "path": {
+                      "type": "string"
+                    },
+                    "detalhe": {
+                      "type": "string"
+                    },
+                    "ref_key": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "kind",
+                    "severidade",
+                    "path",
+                    "detalhe",
+                    "ref_key"
+                  ],
+                  "additionalProperties": false
+                },
+                "default": []
+              },
+              "ultimaVarredura": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "repo",
+              "visibilidade",
+              "score",
+              "ultimaVarredura"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "resumo": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "schema",
+        "entity",
+        "ts",
+        "repos",
+        "resumo"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

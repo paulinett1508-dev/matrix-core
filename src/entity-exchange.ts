@@ -14,8 +14,8 @@ import { z } from "zod";
 export const ENTITY_EXCHANGE_VERSION = 2 as const;
 
 /** Entidades que falam na embaixada (de/para). Inclui córtex (theo/sheldon),
- *  apps/hosts (sbrtask/oraculo) e agentes transversais (hermes/link). */
-export const EntityId = z.enum(["theo", "sheldon", "sbrtask", "oraculo", "hermes", "link"]);
+ *  apps/hosts (sbrtask/oraculo) e agentes transversais (hermes/link/sentinel). */
+export const EntityId = z.enum(["theo", "sheldon", "sbrtask", "oraculo", "hermes", "link", "sentinel"]);
 export type EntityId = z.infer<typeof EntityId>;
 
 export const Severidade = z.enum(["critico", "avisos"]);
